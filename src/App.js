@@ -4,13 +4,13 @@ import Footer from './components/Footer'
 import Routes from './components/Routes'
 
 function App() {
-    const [darkTheme, setDartTheme] = useState(false);
+    const [darkTheme, setDarkTheme] = useState(false);
 
 
   return (
     <div className={darkTheme?'dark' : ''}>
         <div className="bg-gray-100 dark:bg-gray-900 drak:text-gray-200 min-h-screan">
-            <Navbar darkTheme={darkTheme} setDartTheme={setDarkTheme}/>
+            <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
             <Routes/>
             <Footer/>
         </div>
