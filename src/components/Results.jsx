@@ -20,13 +20,31 @@ const Results = () => {
                 <div className='flex flex-wrap justify-between space-y-6 sm:px-56'>
                     {results?.results?.map(({link, title}, index)=>(
                         <div key={index} className='md:w-2/5 w-full'>
-                            <a hr></a>
+                            <a href={link} target='_blank' rel='noreferrer'>
+                                <p className='text-sm'>
+                                    {link.length > 30 ? link.substring(0, 30):link}
+                                </p>
+                                <p className='text-lg hover:underline dark:text-blue-300 text-blue-700'>
+                                    {title}
+                                </p>
+                            </a>
                         </div>
                     ))}
                 </div>
             )
         case '/images':
-            return ''    
+            return (
+                <div className='flex flex-wrap justify-content items-center'>
+                    {results?.image_results?.map(({image, link: {href, title}}, index) =>(
+                        <a className='sm:p-3 p-5' href={href} key={index} target="_blank" rel="nonreferrer">
+                            <img src={image?.src} alt={title} loading='lazy' />
+                            <p className='w-36 break-words text-sm mt-2'> 
+                                {title}
+                            </p>
+                        </a>
+                    ))}
+                </div>
+            )    
         case '/search':
             return 'search'
         case '/search':
