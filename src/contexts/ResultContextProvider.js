@@ -7,7 +7,7 @@ const baseUrl = "https://google-web-search1.p.rapidapi.com/?query=World%20Cup&li
 export const ResultContextProvider = ({children}) => {
     const [results, setResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState('javascript');
 
 
     const getResults = async (type) =>{
@@ -20,7 +20,7 @@ export const ResultContextProvider = ({children}) => {
                 'X-RapidAPI-Host': 'google-web-search1.p.rapidapi.com'
             }
         });
-        const data = await response.text();
+        const data = await response.json();
         console.log(" this is the search data"+ data);
 
         setResults(data);
